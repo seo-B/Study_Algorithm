@@ -47,3 +47,12 @@ console.log(A * units);
 console.log(A * tens);
 console.log(A * hundreds);
 console.log(A * B);
+
+// let num1 = input[0];
+// let num2 = input[1];
+// let stringifiedNum2 = String(num2);
+// let result = [];
+// for(let i=2; i>=0; i--) {
+//     result.push(num1 * (stringifiedNum2[i]));
+//   }
+// console.log(result.join('\n'));
