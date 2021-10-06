@@ -20,6 +20,7 @@
 const fs = require('fs');
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 let [A, B] = fs.readFileSync(filePath).toString().split(' ').map(item => parseInt(item));
+console.log([A, B])
 console.log(A + B);
 
 // const fs = require('fs');

@@ -41,9 +41,9 @@
 const fs = require('fs');
 const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
 let [hour, min] = fs.readFileSync(filePath).toString().split(' ').map(item => parseInt(item));
-  min -= 45;
+min -= 45;
 
-if(min < 0) {
+if (min < 0) {
   min += 60;
   hour = (hour === 0 ? 23 : hour - 1);
 //   hour -= 1;
