@@ -27,3 +27,11 @@
 // 7
 // 17
 // 7
+
+const fs = require("fs");
+const inputFile = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(inputFile).toString().split("\n");
+for (let i = 1; i <= input[0]; i++) {
+  let numbers = input[i].split(" ").map((num) => parseInt(num));
+  console.log(numbers[0] + numbers[1]);
+}
