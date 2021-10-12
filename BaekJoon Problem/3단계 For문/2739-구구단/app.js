@@ -11,10 +11,10 @@
 // 출력
 // 출력형식과 같게 N*1부터 N*9까지 출력한다.
 
-// 예제 입력 1 
+// 예제 입력 1
 // 2
 
-// 예제 출력 1 
+// 예제 출력 1
 // 2 * 1 = 2
 // 2 * 2 = 4
 // 2 * 3 = 6
@@ -25,11 +25,15 @@
 // 2 * 8 = 16
 // 2 * 9 = 18
 
-const fs = require('fs');
-const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
-let [input] = fs.readFileSync(filePath).toString().split(' ').map(item => parseInt.item);
-console.log(input)
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let [input] = fs
+  .readFileSync(filePath)
+  .toString()
+  .split(" ")
+  .map((item) => parseInt(item));
+
 for (let i = 1; i <= 9; i++) {
-    let result = input * i
-    console.log(`${input} * ${i} = ${result}`);
+  const result = input * i;
+  console.log(`${input} * ${i} = ${result}`);
 }
