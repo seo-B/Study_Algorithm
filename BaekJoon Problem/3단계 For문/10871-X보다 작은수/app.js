@@ -26,9 +26,10 @@ let input = fs.readFileSync(inputFile).toString().split("\n");
 
 let N = input[0].split(" ")[0];
 let X = input[0].split(" ")[1];
-let A = input[1];
+let A = input[1].split(" ");
+console.log(A);
 let result = [];
-for (let i = 0; i < A; i++) {
+for (let i = 0; i < A.length; i++) {
   if (A[i] <= X) result.push(A[i]);
 }
-console.log(result);
+console.log(result.join(" "));
