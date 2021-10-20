@@ -31,7 +31,7 @@ const fs = require("fs");
 const inputFile = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
 let input = fs.readFileSync(inputFile).toString().split("\n");
 let i = 0;
-let sum = "";
+let sum = 0;
 
 while (i < input.length) {
   const [a, b] = input[i].split(" ").map((n) => parseInt(n));
