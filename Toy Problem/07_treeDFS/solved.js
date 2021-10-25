@@ -25,15 +25,30 @@
 // output = dfs(root);
 // console.log(output); // --> [1, 2, 4, 6, 5, 3, 7]
 
-let dfs = function (node) {
+//dfs 깊이 우선 탐색, 현재 정점에서 갈 수 잇는 점들까지 들어가면서 탐색
+// 큐를 이용
+// 시간 복잡도 O(N^2)
+
+let dfs = function (node, result = []) {
   // TODO: 여기에 코드를 작성합니다.
-  let values = [node.value];
+  // node.value를 result에 담아줌
+  // 자식이 있으면 value push, 0번째 부터 반복문으로 확인
+  // 자식이 없으면 result return (반복문 밖에서 상위노드의 다음 자식노드를 탐색?)
 
-  node.children.forEach((n) => {
-    values = values.concat(dfs(n));
-  });
+  // 최상단 노드를 방문도장 쾅!
+  if (node.children.length === 0) return [node.value];
+  let result = [];
+  // 시작 노드를 stack에 넣어주고 방문처리(빈배열에 push)
+  result.push(node.value);
 
-  return values;
+  // 최상단 노드에 방문하지 않는 자식노드가 있으면 그 노드를 stack에 넣고 방문처리
+  // 방문하지 않은 인접노드가 없다면 스택에서 최상단 노드를 빼줌
+  for (let i = 0; i < node.children.length; i++) {
+    let temp = dfs(node.children[i]);
+    //자식노드들을 탐색할 때 재귀함수를 호출하여 하나하나 result에 포함
+    result = [...result, ...temp];
+  }
+  return result;
 };
 
 // 이 아래 코드는 변경하지 않아도 됩니다. 자유롭게 참고하세요.
