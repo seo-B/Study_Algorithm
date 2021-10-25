@@ -35,17 +35,38 @@
 // 위에서 설명된 알고리즘 1~3의 과정 중 어떤 요소도 위치가 바뀌지 않은 경우, 배열이 정렬된 상태라는 것을 알 수 있습니다.
 
 const bubbleSort = function (arr) {
-  // TODO: 여기에 코드를 작성합니다.
-  const swap = function (el, le, arr) {
-    [arr[el], arr[le]] = [arr[le], arr[el]];
-  };
+  let idx = 1;
+  let toggle = false;
+
   for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        swap(j, j + 1, arr);
+    while (idx < arr.length) {
+      if (arr[idx - 1] > arr[idx]) {
+        let [f, b] = [arr[idx - 1], arr[idx]];
+        arr[idx - 1] = b;
+        arr[idx] = f;
+        toggle = true;
       }
+      idx++;
     }
-    break;
+    if (!toggle) return arr;
+    idx = 1;
   }
+
   return arr;
 };
+
+// const bubbleSort = function (arr) {
+//   // TODO: 여기에 코드를 작성합니다.
+//   const swap = function (el, le, arr) {
+//     [arr[el], arr[le]] = [arr[le], arr[el]];
+//   };
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length - 1; j++) {
+//       if (arr[j] > arr[j + 1]) {
+//         swap(j, j + 1, arr);
+//       }
+//     }
+//     break;
+//   }
+//   return arr;
+// };
