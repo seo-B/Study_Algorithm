@@ -63,3 +63,39 @@
 // 6
 
 // 각 수를 42로 나눈 나머지는 39, 40, 41, 0, 1, 2, 40, 41, 0, 1이다. 서로 다른 값은 6개가 있다.
+
+const fs = require("fs");
+const inputFile = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs
+  .readFileSync(inputFile)
+  .toString()
+  .trim()
+  .split("\n")
+  .map((n) => Number(n));
+let result = input.map((num) => num % 42);
+let [...answer] = new Set(result);
+
+console.log(answer.length);
+
+// 처음 작성 코드 -> 반복문 사용으로 push값 넣어주는 것보다 map으로 변경 가능
+// let result = [];
+// for (let i = 0; i < input.length; i++) {
+//   result.push(input[i] % 42);
+// }
+// let [...answer] = new Set(result);
+
+// 배열 값 중복 제거
+// 1 Set 객체 사용 - 부분집합 교집합 등에 주로 사용
+
+// 2 forEach() 와 includes() 사용 기존 배열에 없는 값만 새로운 배열에 추가
+// const result = [];
+// input.forEach(n => {
+//      const num = n % 42;
+//     if (result.indexOf(num) === -1) {
+//         result.push(num);
+//     }
+// });
+// console.log(result.length);
+
+// 3 filter() 와 indexOf() 활용하여 기존 배열에 없는 요소만 새로운 배열에 추가해서 중복 없는 배열을 만드는 방법.
+// 2번과 비슷
