@@ -31,3 +31,26 @@
 // 2
 // 0
 // 0
+
+const fs = require("fs");
+const inputFile = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(inputFile).toString().split("\n");
+
+let multipleNum = String(input[0] * input[1] * input[2]);
+
+for (let i = 0; i <= 9; i++) {
+  let count = 0;
+  for (let j = 0; j < multipleNum.length; j++) {
+    if (Number(multipleNum[j]) === i) {
+      count++;
+    }
+  }
+  console.log(count);
+}
+
+// for (let i = 0; i <= 9; i++) {
+// 문자열을 0~9까지의 문자로 split했을 때 나오는 배열요소 수 -1
+// ex) 17037300 을 0 으로 split하면 ['17','373','','']
+//     여기다가 1을 빼주면 총 split한 횟수 = 해당 문자의 개수
+//     console.log(result.split(String(i)).length - 1);
+// }
