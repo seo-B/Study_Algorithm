@@ -13,7 +13,7 @@ https://user-images.githubusercontent.com/85715932/138718757-8d7257d6-5858-409c-
 
 #### 1. Toy Algorithm - CodeStates
 
-Study Members : 김강희나, 김상권 
+Study Members : 김강희나, 김상권, 서한석, 이승섭 
 
 #### 2. BaekJoon Algorithm
 
