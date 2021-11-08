@@ -15,6 +15,4 @@ https://user-images.githubusercontent.com/85715932/138718757-8d7257d6-5858-409c-
 
 Study Members : 김강희나, 김상권, 서한석, 이승섭 이상. 
 
-#### 2. BaekJoon Algorithm
 
-#### 3. Programmers Algorithm
