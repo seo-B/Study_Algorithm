@@ -37,3 +37,5 @@ const inequalityNumber = function (signs) {
   const maxNum = isValid(numArr.reverse(), -1, Array(10).fill(false), []);
   return maxNum - minNum;
 };
+
+// remote test sangkwonkim
