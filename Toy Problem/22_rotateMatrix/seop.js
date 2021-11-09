@@ -38,30 +38,24 @@
 // Advanced
 // 세로와 가로의 길이가 각각 M, N인 2차원 M X N 배열을 시계방향으로 90도씩 K번 회전시킨 배열을 리턴해 보세요. 회전수가 두 번째 입력으로 주어집니다.
 
-const rotateMatrix = function (matrix, num = 1) {
-  // 빈 배열에 matrix[3][0] / [2][0] / [1][0] / [0][0] =>  [i][0] 넣기.
-  if (matrix.length === 0) {
-    return matrix;
-  }
-  let result = [];
+const rotateMatrix = function (matrix, rotate = 1) {
+  if (matrix.length === 0) return [];
+  let [row, col] = [matrix.length, matrix[0].length];
+  rotate = rotate % 4;
 
-  function rotateOnce(arr) {
-    result = [];
-    for (let j = 0; j < arr[0].length; j++) {
-      let row = [];
-      for (let i = arr.length - 1; i >= 0; i--) {
-        row.push(arr[i][j]);
-      }
-      result.push(row);
+  while (rotate > 0) {
+    let result = [];
+    for (let i = 0; i < col; i++) {
+      result.push([]);
     }
-    return result;
-  }
-
-  while (num > 0) {
-    rotateOnce(matrix);
+    for (let i = 0; i < row; i++) {
+      for (let j = 0; j < col; j++) {
+        result[j].unshift(matrix[i][j]);
+      }
+    }
     matrix = result;
-    num--;
+    rotate--;
+    [row, col] = [col, row];
   }
-
-  return result;
+  return matrix;
 };
