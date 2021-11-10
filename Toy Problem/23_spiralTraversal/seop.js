@@ -61,10 +61,6 @@ const spiralTraversal = function (matrix) {
     start++;
   }
 
-  let trash = Math.abs(end - endRow);
-  if (end !== endRow) {
-    return result.slice(0, -trash);
-  }
 
   return result;
 };
